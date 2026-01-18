@@ -15,6 +15,7 @@ RUN uv sync
 
 # 7. Copy Source Code
 COPY main.py .
+COPY pyproject.toml uv.lock README.md* ./
 
 # 8. Define the entrypoint
 # We run Xvfb and then the Python daemon inside it
