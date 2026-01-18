@@ -7,10 +7,8 @@ name = "log-test"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "pandas" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "pandas", specifier = ">=2.3.3" },
 ]
