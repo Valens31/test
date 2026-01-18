@@ -9,13 +9,13 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
 # 4. Set Workdir
 WORKDIR /app
 
-# 6. Install Dependencies
-# We use --system because we are already in a container, no need for venv
-RUN uv sync
-
 # 7. Copy Source Code
 COPY main.py .
 COPY pyproject.toml uv.lock README.md* ./
+
+# 6. Install Dependencies
+# We use --system because we are already in a container, no need for venv
+RUN uv sync
 
 # 8. Define the entrypoint
 # We run Xvfb and then the Python daemon inside it
