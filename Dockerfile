@@ -19,4 +19,4 @@ RUN uv sync
 
 # 8. Define the entrypoint
 # We run Xvfb and then the Python daemon inside it
-CMD [""python3", "main.py"]
+CMD ["python3", "main.py"]
