@@ -1,0 +1,19 @@
+services:
+  log-test:
+    build: .
+    image: log-test:latest
+    container_name: log-test
+    restart: unless-stopped
+    # CRITICAL: Chrome crashes in Docker without shared memory (shm)
+    shm_size: '2gb' 
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Optional: Mount logs to host if you want to see them outside
+      - /home/port/logs/log-test:/app/logs
+    networks:
+      - log-test_net
+
+networks:
+  log-test_net:
+    driver: bridge
